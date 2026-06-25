@@ -5,9 +5,264 @@
   --foreground: #FFF6F6;
   --card-pink: #F875AA;
   --card-blue: #AEDEFC;
+  --card-yellow: #FFE66D;
+  --card-green: #88D498;
+  --shadow-dark: #2D2D2D;
+  --text-dark: #1a1a2e;
+  --retro-glow: rgba(248, 117, 170, 0.4);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+}
+
+/* ========== RETRO SELECTION ========== */
+::selection {
+  background: var(--card-pink);
+  color: white;
+}
+
+/* ========== PIXEL BORDER UTILITY ========== */
+.pixel-border {
+  border: 3px solid var(--shadow-dark);
+  box-shadow:
+    4px 4px 0px 0px var(--shadow-dark),
+    -1px -1px 0px 0px var(--shadow-dark);
+}
+
+.pixel-border-pink {
+  border: 3px solid var(--card-pink);
+  box-shadow: 6px 6px 0px 0px var(--card-pink);
+}
+
+.pixel-border-blue {
+  border: 3px solid var(--card-blue);
+  box-shadow: 6px 6px 0px 0px var(--card-blue);
+}
+
+/* ========== RETRO SCANLINE OVERLAY ========== */
+.scanline-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* ========== CRT GLOW ========== */
+.crt-glow {
+  text-shadow:
+    0 0 5px var(--retro-glow),
+    0 0 10px var(--retro-glow),
+    0 0 20px var(--retro-glow);
+}
+
+/* ========== RETRO GRID BACKGROUND ========== */
+.retro-grid {
+  background-image:
+    linear-gradient(rgba(174, 222, 252, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(174, 222, 252, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ========== RETRO DIALOG BOX ========== */
+.dialog-box {
+  background: var(--foreground);
+  border: 3px solid var(--shadow-dark);
+  box-shadow:
+    6px 6px 0px 0px var(--card-pink),
+    inset 0 0 0 2px var(--foreground),
+    inset 0 0 0 4px var(--shadow-dark);
+  border-radius: 4px;
+  position: relative;
+}
+
+.dialog-box::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  height: 28px;
+  background: var(--card-pink);
+  border-bottom: 3px solid var(--shadow-dark);
+}
+
+/* ========== RETRO BUTTON ========== */
+.retro-btn {
+  background: var(--card-pink);
+  color: white;
+  border: 3px solid var(--shadow-dark);
+  box-shadow: 4px 4px 0px 0px var(--shadow-dark);
+  padding: 0.6rem 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  position: relative;
+}
+
+.retro-btn:hover {
+  box-shadow: 2px 2px 0px 0px var(--shadow-dark);
+  transform: translate(2px, 2px);
+}
+
+.retro-btn:active {
+  box-shadow: 0px 0px 0px 0px var(--shadow-dark);
+  transform: translate(4px, 4px);
+}
+
+/* ========== RETRO INPUT ========== */
+.retro-input {
+  background: var(--foreground);
+  border: 3px solid var(--shadow-dark);
+  box-shadow: 3px 3px 0px 0px var(--card-blue);
+  padding: 0.6rem 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+  color: var(--text-dark);
+}
+
+.retro-input:focus {
+  box-shadow: 3px 3px 0px 0px var(--card-pink);
+  border-color: var(--card-pink);
+}
+
+.retro-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* ========== MARQUEE ANIMATION ========== */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+
+.marquee-right {
+  animation: marquee-right 30s linear infinite;
+}
+
+.marquee-left:hover,
+.marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* ========== BLINK CURSOR ========== */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.blink-cursor::after {
+  content: '▸';
+  animation: blink-cursor 1s step-end infinite;
+  color: var(--card-pink);
+  margin-left: 4px;
+}
+
+/* ========== PRESS START FLICKER ========== */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.flicker {
+  animation: flicker 1.5s ease-in-out infinite;
+}
+
+/* ========== LEVEL BADGE ========== */
+.level-badge {
+  background: var(--card-yellow);
+  color: var(--shadow-dark);
+  border: 2px solid var(--shadow-dark);
+  box-shadow: 2px 2px 0px 0px var(--shadow-dark);
+  padding: 0.15rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ========== PIXEL DIVIDER ========== */
+.pixel-divider {
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--card-pink) 0px,
+    var(--card-pink) 8px,
+    transparent 8px,
+    transparent 12px,
+    var(--card-blue) 12px,
+    var(--card-blue) 20px,
+    transparent 20px,
+    transparent 24px
+  );
+}
+
+/* ========== SECTION HEADER ========== */
+.section-header {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--shadow-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 3px 3px 0px var(--card-pink);
+  position: relative;
+  display: inline-block;
+}
+
+.section-header::after {
+  content: '';
+  display: block;
+  margin-top: 8px;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--card-blue) 0px,
+    var(--card-blue) 8px,
+    transparent 8px,
+    transparent 12px
+  );
+}
+
+/* ========== SCROLLBAR RETRO ========== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-pink);
+  border: 2px solid var(--shadow-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--card-blue);
+}
+
+/* ========== SMOOTH SCROLL ========== */
+html {
+  scroll-behavior: smooth;
 }
