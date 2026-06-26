@@ -262,6 +262,30 @@
   background: var(--card-blue);
 }
 
+/* ========== TROPHY GLOW ========== */
+@keyframes trophy-glow {
+  0%, 100% {
+    box-shadow: 6px 6px 0px 0px var(--card-yellow), 0 0 0px var(--card-yellow);
+  }
+  50% {
+    box-shadow: 6px 6px 0px 0px var(--card-yellow), 0 0 20px rgba(255, 230, 109, 0.4);
+  }
+}
+
+.trophy-glow {
+  animation: trophy-glow 2s ease-in-out infinite;
+}
+
+/* ========== QUEST PULSE ========== */
+@keyframes quest-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.quest-pulse {
+  animation: quest-pulse 2s ease-in-out infinite;
+}
+
 /* ========== SMOOTH SCROLL ========== */
 html {
   scroll-behavior: smooth;

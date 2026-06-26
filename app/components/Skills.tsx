@@ -15,10 +15,12 @@ const SKILLS = [
     { name: 'Git', color: '#F05032' },
     { name: 'Figma', color: '#F24E1E' },
     { name: 'Tailwind', color: '#06B6D4' },
-    { name: 'Docker', color: '#2496ED' },
     { name: 'PostgreSQL', color: '#4169E1' },
-    { name: 'MongoDB', color: '#47A248' },
     { name: 'Dart', color: '#0175C2' },
+    { name: 'PHP', color: '#EC19F7' },
+    { name: 'Laravel', color: '#F71919' },
+    { name: 'MySql', color: '#F3F719' },
+
 ]
 
 // Simple retro-style SVG icons for each skill

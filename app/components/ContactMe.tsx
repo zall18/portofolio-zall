@@ -2,23 +2,54 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const SOCIAL_LINKS = [
-    { icon: 'github-icon.png', alt: 'GitHub', href: '#', label: 'GitHub' },
-    { icon: 'linkedin-icon.webp', alt: 'LinkedIn', href: '#', label: 'LinkedIn' },
-    { icon: 'ig-icon.jpg', alt: 'Instagram', href: '#', label: 'Instagram' },
-    { icon: 'gmail-icon.png', alt: 'Gmail', href: '#', label: 'Email' },
+    { icon: 'github-icon.png', alt: 'GitHub', href: 'https://github.com/zall18', label: 'GitHub' },
+    { icon: 'linkedin-icon.webp', alt: 'LinkedIn', href: 'https://www.linkedin.com/in/muhamad-rizal-fikri-a77b13250', label: 'LinkedIn' },
+    { icon: 'ig-icon.jpg', alt: 'Instagram', href: 'https://www.instagram.com/rizlll_/', label: 'Instagram' },
+    { icon: 'gmail-icon.png', alt: 'Gmail', href: 'mailto:muhamadrizalf1112@gmail.com', label: 'Email' },
 ]
 
 export default function ContactMe() {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-    const [submitted, setSubmitted] = useState(false)
+    const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        // Backend integration placeholder — user will add their own
-        setSubmitted(true)
-        setTimeout(() => setSubmitted(false), 3000)
+        setStatus('sending')
+
+        try {
+            await emailjs.send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_ramjfkg',
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_ehgjzav',
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                    time: new Date().toLocaleString('id-ID', {
+                        dateStyle: 'full',
+                        timeStyle: 'short',
+                    }),
+                },
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'bdavAocId-QoCUulf'
+            )
+            setStatus('sent')
+            setFormData({ name: '', email: '', message: '' })
+            setTimeout(() => setStatus('idle'), 4000)
+        } catch {
+
+            setStatus('error')
+            setTimeout(() => setStatus('idle'), 4000)
+
+        }
+    }
+
+    const buttonText = {
+        idle: '▸ Send Message',
+        sending: '⏳ Sending...',
+        sent: '✓ Message Sent!',
+        error: '✕ Failed! Try Again',
     }
 
     return (
@@ -94,9 +125,12 @@ export default function ContactMe() {
 
                             <button
                                 type="submit"
-                                className="retro-btn w-full text-center"
+                                disabled={status === 'sending'}
+                                className={`retro-btn w-full text-center ${status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''
+                                    } ${status === 'sent' ? '!bg-[var(--card-green)]' : ''} ${status === 'error' ? '!bg-red-500' : ''
+                                    }`}
                             >
-                                {submitted ? '✓ Message Sent!' : '▸ Send Message'}
+                                {buttonText[status]}
                             </button>
                         </form>
                     </div>
@@ -154,6 +188,7 @@ export default function ContactMe() {
                                 <a
                                     key={link.alt}
                                     href={link.href}
+                                    target="_blank"
                                     className="flex items-center gap-3 p-3 bg-[var(--card-blue)]/20 border-2 border-[var(--shadow-dark)] shadow-[3px_3px_0px_0px_var(--shadow-dark)] hover:shadow-[1px_1px_0px_0px_var(--shadow-dark)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-150 group"
                                 >
                                     <div className="w-6 h-6 flex-shrink-0">

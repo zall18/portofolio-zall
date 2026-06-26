@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const NAV_ITEMS = [
+const MAIN_NAV_ITEMS = [
     { label: 'About Me!', href: '#about' },
     { label: 'My Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
@@ -11,23 +11,44 @@ const NAV_ITEMS = [
     { label: 'Contact Me!', href: '#contact' },
 ]
 
+const MORE_NAV_ITEMS = [
+    { label: '🏆 Trophies', href: '#achievements' },
+    { label: '⚔️ Freelance', href: '#freelance' },
+    { label: '📜 Certs', href: '#certifications' },
+]
+
+// All items combined for mobile menu & scroll spy
+const ALL_NAV_ITEMS = [
+    ...MAIN_NAV_ITEMS.slice(0, 3),
+    MORE_NAV_ITEMS[0],
+    MAIN_NAV_ITEMS[3],
+    MORE_NAV_ITEMS[1],
+    MORE_NAV_ITEMS[2],
+    MAIN_NAV_ITEMS[4],
+]
+
 const SOCIAL_LINKS = [
-    { icon: 'github-icon.png', alt: 'GitHub', href: '#' },
-    { icon: 'linkedin-icon.webp', alt: 'LinkedIn', href: '#' },
-    { icon: 'ig-icon.jpg', alt: 'Instagram', href: '#' },
-    { icon: 'gmail-icon.png', alt: 'Gmail', href: '#' },
+    { icon: 'github-icon.png', alt: 'GitHub', href: 'https://github.com/zall18' },
+    { icon: 'linkedin-icon.webp', alt: 'LinkedIn', href: 'https://www.linkedin.com/in/muhamad-rizal-fikri-a77b13250' },
+    { icon: 'ig-icon.jpg', alt: 'Instagram', href: 'https://www.instagram.com/rizlll_/' },
+    { icon: 'gmail-icon.png', alt: 'Gmail', href: 'mailto:muhamadrizalf1112@gmail.com' },
 ]
 
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState('')
     const [scrolled, setScrolled] = useState(false)
     const [mobileOpen, setMobileOpen] = useState(false)
+    const [moreOpen, setMoreOpen] = useState(false)
+    const moreRef = useRef<HTMLLIElement>(null)
+
+    // Check if active section is one of the "More" items
+    const isMoreActive = MORE_NAV_ITEMS.some(item => item.href === activeSection)
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50)
 
-            const sections = ['about', 'skills', 'experience', 'projects', 'contact']
+            const sections = ['about', 'skills', 'experience', 'achievements', 'projects', 'freelance', 'certifications', 'contact']
             for (const id of [...sections].reverse()) {
                 const el = document.getElementById(id)
                 if (el) {
@@ -45,6 +66,17 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    // Close "More" dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+                setMoreOpen(false)
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => document.removeEventListener('mousedown', handleClickOutside)
+    }, [])
+
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault()
         const el = document.querySelector(href)
@@ -52,6 +84,7 @@ export default function Navbar() {
             el.scrollIntoView({ behavior: 'smooth' })
         }
         setMobileOpen(false)
+        setMoreOpen(false)
     }
 
     return (
@@ -97,10 +130,10 @@ export default function Navbar() {
                         ⭐ Rizal Fikri
                     </a>
 
-                    {/* Desktop Nav Items */}
+                    {/* Desktop Nav Items — Main + More Dropdown */}
                     <div className="hidden lg:block">
-                        <ul className="flex gap-2">
-                            {NAV_ITEMS.map((item) => (
+                        <ul className="flex gap-2 items-center">
+                            {MAIN_NAV_ITEMS.map((item) => (
                                 <li key={item.href}>
                                     <a
                                         href={item.href}
@@ -121,11 +154,69 @@ export default function Navbar() {
                                     </a>
                                 </li>
                             ))}
+
+                            {/* More Dropdown */}
+                            <li className="relative" ref={moreRef}>
+                                <button
+                                    onClick={() => setMoreOpen(!moreOpen)}
+                                    className={`
+                                        block px-3 py-1 text-sm font-bold uppercase tracking-wide
+                                        border-2 border-[var(--shadow-dark)]
+                                        transition-all duration-100 cursor-pointer
+                                        ${isMoreActive || moreOpen
+                                            ? 'bg-[var(--card-pink)] text-white shadow-[2px_2px_0px_0px_var(--shadow-dark)] translate-x-[1px] translate-y-[1px]'
+                                            : 'bg-[var(--card-blue)] text-[var(--text-dark)] shadow-[3px_3px_0px_0px_var(--shadow-dark)] hover:shadow-[1px_1px_0px_0px_var(--shadow-dark)] hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-[var(--card-pink)] hover:text-white'
+                                        }
+                                        active:shadow-[0px_0px_0px_0px_var(--shadow-dark)]
+                                        active:translate-x-[3px] active:translate-y-[3px]
+                                    `}
+                                >
+                                    More {moreOpen ? '▴' : '▾'}
+                                </button>
+
+                                {/* Dropdown Menu */}
+                                <AnimatePresence>
+                                    {moreOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                                            transition={{ duration: 0.15 }}
+                                            className="absolute top-[calc(100%+8px)] right-0 z-50 min-w-[180px]"
+                                        >
+                                            <div className="bg-[var(--foreground)] border-3 border-[var(--shadow-dark)] shadow-[6px_6px_0px_0px_var(--card-pink)] p-2 space-y-1.5">
+                                                {/* Dropdown title bar */}
+                                                <div className="text-xs font-bold text-[var(--text-dark)] uppercase tracking-wider opacity-50 px-1 mb-1">
+                                                    ▸ More Sections
+                                                </div>
+                                                {MORE_NAV_ITEMS.map((item) => (
+                                                    <a
+                                                        key={item.href}
+                                                        href={item.href}
+                                                        onClick={(e) => handleNavClick(e, item.href)}
+                                                        className={`
+                                                            block px-3 py-1.5 text-sm font-bold uppercase tracking-wide
+                                                            border-2 border-[var(--shadow-dark)]
+                                                            transition-all duration-100
+                                                            ${activeSection === item.href
+                                                                ? 'bg-[var(--card-pink)] text-white shadow-[2px_2px_0px_0px_var(--shadow-dark)]'
+                                                                : 'bg-[var(--card-blue)] text-[var(--text-dark)] shadow-[3px_3px_0px_0px_var(--shadow-dark)] hover:shadow-[1px_1px_0px_0px_var(--shadow-dark)] hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-[var(--card-pink)] hover:text-white'
+                                                            }
+                                                        `}
+                                                    >
+                                                        {item.label}
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </li>
                         </ul>
                     </div>
 
-                    {/* Desktop Social Icons */}
-                    <div className="hidden lg:block">
+                    {/* Desktop Social Icons + Download CV */}
+                    <div className="hidden lg:flex items-center gap-2">
                         <ul className="flex gap-2">
                             {SOCIAL_LINKS.map((link) => (
                                 <li key={link.alt}>
@@ -148,6 +239,23 @@ export default function Navbar() {
                                 </li>
                             ))}
                         </ul>
+                        <a
+                            href="/cv.pdf"
+                            download
+                            className="
+                                block px-3 py-1 text-sm font-bold uppercase tracking-wide
+                                bg-[var(--card-yellow)] text-[var(--shadow-dark)]
+                                border-2 border-[var(--shadow-dark)]
+                                shadow-[3px_3px_0px_0px_var(--shadow-dark)]
+                                hover:shadow-[1px_1px_0px_0px_var(--shadow-dark)]
+                                hover:translate-x-0.5 hover:translate-y-0.5
+                                active:shadow-[0px_0px_0px_0px_var(--shadow-dark)]
+                                active:translate-x-[3px] active:translate-y-[3px]
+                                transition-all duration-100 whitespace-nowrap
+                            "
+                        >
+                            📥 CV
+                        </a>
                     </div>
 
                     {/* Mobile Hamburger */}
@@ -179,7 +287,7 @@ export default function Navbar() {
                 </div>
             </motion.nav>
 
-            {/* Mobile Menu — dialog box style */}
+            {/* Mobile Menu — dialog box style (shows ALL items) */}
             <AnimatePresence>
                 {mobileOpen && (
                     <motion.div
@@ -195,7 +303,7 @@ export default function Navbar() {
                             </span>
 
                             <ul className="flex flex-col gap-2 mb-4">
-                                {NAV_ITEMS.map((item) => (
+                                {ALL_NAV_ITEMS.map((item) => (
                                     <li key={item.href}>
                                         <a
                                             href={item.href}
@@ -218,7 +326,7 @@ export default function Navbar() {
 
                             <div className="pixel-divider mb-3" />
 
-                            <ul className="flex gap-2 justify-center">
+                            <ul className="flex gap-2 justify-center mb-3">
                                 {SOCIAL_LINKS.map((link) => (
                                     <li key={link.alt}>
                                         <a
@@ -238,6 +346,22 @@ export default function Navbar() {
                                     </li>
                                 ))}
                             </ul>
+
+                            <a
+                                href="/resume.pdf"
+                                download="CV_rizal.pdf"
+                                className="
+                                    block text-center px-3 py-2 font-bold text-sm uppercase tracking-wide
+                                    bg-[var(--card-yellow)] text-[var(--shadow-dark)]
+                                    border-2 border-[var(--shadow-dark)]
+                                    shadow-[3px_3px_0px_0px_var(--shadow-dark)]
+                                    hover:shadow-[1px_1px_0px_0px_var(--shadow-dark)]
+                                    hover:translate-x-0.5 hover:translate-y-0.5
+                                    transition-all duration-100
+                                "
+                            >
+                                📥 Download CV
+                            </a>
                         </div>
                     </motion.div>
                 )}

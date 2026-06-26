@@ -4,61 +4,75 @@ import { motion } from 'framer-motion'
 
 const PROJECTS = [
     {
-        title: 'Project Alpha',
-        description: 'A full-stack web application for managing tasks and projects with real-time collaboration features.',
-        tech: ['Next.js', 'TypeScript', 'PostgreSQL'],
+        title: 'Semara Lombok AI - Mobile',
+        description: 'An integrated hotel service management application (B2B) designed specifically for use on In-Room Tablets.',
+        tech: ['Flutter', 'Android Native', 'REST API'],
         color: 'var(--card-pink)',
-        link: '#',
+        link: '#'
     },
     {
-        title: 'Project Beta',
-        description: 'Mobile application built with Flutter for tracking fitness goals and workout routines.',
+        title: 'TB Care Mobile',
+        description: 'An integrated healthcare application designed to facilitate Tuberculosis (TB) treatment, monitoring, and education for patients and medical staff.',
         tech: ['Flutter', 'Dart', 'Firebase'],
         color: 'var(--card-blue)',
-        link: '#',
+        link: 'https://github.com/alamsyahfirdaus/tb-care-mobile'
     },
     {
-        title: 'Project Gamma',
-        description: 'AI-powered chatbot application that helps students with their homework and study sessions.',
-        tech: ['Python', 'React', 'OpenAI'],
+        title: 'SIM UKK Mobile',
+        description: 'A mobile application for vocational competency exam management that digitizes the practical exam grading process for vocational school students.',
+        tech: ['Kotlin', 'XML', 'REST API'],
+        color: 'var(--card-green)',
+        link: 'https://github.com/zall18/project_ujikom_sim_ukk_mobile'
+    },
+    {
+        title: 'Smart Green House Mobile',
+        description: 'A smart farming controller application that enables automated monitoring and control of greenhouse environmental conditions.',
+        tech: ['Kotlin', 'IoT', 'REST API'],
+        color: 'var(--card-yellow)',
+        link: 'https://github.com/zall18/smart-green-house-mobile'
+    },
+    {
+        title: 'Jurnal Prakerin Mobile',
+        description: 'An educational productivity application to monitor, track, and record students\' daily activities during their Industrial Work Practice (Prakerin).',
+        tech: ['Kotlin'],
         color: 'var(--card-pink)',
-        link: '#',
+        link: 'https://github.com/zall18/jurnal_prakerin'
     },
     {
-        title: 'Project Delta',
-        description: 'E-commerce platform with integrated payment systems and inventory management.',
-        tech: ['Kotlin', 'Node.js', 'MongoDB'],
+        title: 'SIM UKK Web Dashboard',
+        description: 'A web-based admin and assessor panel system to manage the Vocational Competency Exam (UKK) ecosystem.',
+        tech: ['PHP', 'Laravel', 'Blade', 'Bootstrap'],
         color: 'var(--card-blue)',
-        link: '#',
+        link: 'https://github.com/zall18/project_ujikom_sim_ukk_web'
     },
     {
-        title: 'Project Epsilon',
-        description: 'Dashboard analytics tool for visualizing social media engagement and growth metrics.',
-        tech: ['React', 'D3.js', 'Express'],
+        title: 'SIM UKK REST API',
+        description: 'A centralized backend API service that connects the SIM UKK Mobile application and Web Dashboard.',
+        tech: ['PHP', 'Laravel', 'Laravel Sanctum'],
+        color: 'var(--card-green)',
+        link: 'https://github.com/zall18/project_ujikom_sim_ukk_api'
+    },
+    {
+        title: 'Hadirin Backend',
+        description: 'A comprehensive backend system designed to handle event management, staff administration, and digital guest attendance tracking.',
+        tech: ['Node.js', 'Express.js', 'Prisma ORM', 'JWT', 'Bcrypt'],
+        color: 'var(--card-yellow)',
+        link: 'https://github.com/zall18/hadirin-backend'
+    },
+    {
+        title: 'Smart Presence Backend',
+        description: 'A smart attendance and authentication API service that ensures user data security and attendance tracking.',
+        tech: ['Node.js', 'Express.js', 'JWT', 'Bcrypt'],
         color: 'var(--card-pink)',
-        link: '#',
+        link: 'https://github.com/nasrielsidiq/smart_presence'
     },
     {
-        title: 'Project Zeta',
-        description: 'IoT home automation app controlling smart devices with voice commands and scheduling.',
-        tech: ['Flutter', 'Firebase', 'MQTT'],
+        title: 'Project Presensi',
+        description: 'A comprehensive web-based attendance management information system equipped with features for managing schedules, participant groups, work shifts, holidays, and hardware integration management.',
+        tech: ['PHP', 'Laravel', 'MySQL'],
         color: 'var(--card-blue)',
-        link: '#',
-    },
-    {
-        title: 'Project Eta',
-        description: 'Recipe sharing platform with personalized recommendations based on dietary preferences.',
-        tech: ['Next.js', 'Tailwind', 'Prisma'],
-        color: 'var(--card-pink)',
-        link: '#',
-    },
-    {
-        title: 'Project Theta',
-        description: 'A collaborative whiteboard app for remote teams with real-time drawing and annotation tools.',
-        tech: ['React', 'Socket.io', 'Canvas'],
-        color: 'var(--card-blue)',
-        link: '#',
-    },
+        link: 'https://github.com/zall18/project_presensi'
+    }
 ]
 
 function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: number }) {
@@ -98,13 +112,15 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
                     </div>
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-[var(--shadow-dark)]/0 group-hover:bg-[var(--shadow-dark)]/40 transition-all duration-300 flex items-center justify-center">
-                        <motion.span
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileHover={{ opacity: 1, scale: 1 }}
-                            className="text-white font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[var(--card-pink)] px-3 py-1 border-2 border-white shadow-[3px_3px_0px_0px_rgba(255,255,255,0.3)]"
-                        >
-                            View Project →
-                        </motion.span>
+                        <a href={project.link} target="_blank">
+                            <motion.span
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileHover={{ opacity: 1, scale: 1 }}
+                                className="text-white font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[var(--card-pink)] px-3 py-1 border-2 border-white shadow-[3px_3px_0px_0px_rgba(255,255,255,0.3)]"
+                            >
+                                View Project →
+                            </motion.span>
+                        </a>
                     </div>
                 </div>
 
