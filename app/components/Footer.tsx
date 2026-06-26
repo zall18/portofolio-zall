@@ -8,10 +8,10 @@ export default function Footer() {
                 {/* Social Links Row */}
                 <div className="flex justify-center gap-4">
                     {[
-                        { icon: 'github-icon.png', alt: 'GitHub', href: '#' },
-                        { icon: 'linkedin-icon.webp', alt: 'LinkedIn', href: '#' },
-                        { icon: 'ig-icon.jpg', alt: 'Instagram', href: '#' },
-                        { icon: 'gmail-icon.png', alt: 'Gmail', href: '#' },
+                        { icon: 'github-icon.png', alt: 'GitHub', href: 'https://github.com/zall18' },
+                        { icon: 'linkedin-icon.webp', alt: 'LinkedIn', href: 'https://www.linkedin.com/in/muhamad-rizal-fikri-a77b13250' },
+                        { icon: 'ig-icon.jpg', alt: 'Instagram', href: 'https://www.instagram.com/rizlll_/' },
+                        { icon: 'gmail-icon.png', alt: 'Gmail', href: 'mailto:muhamadrizalf1112@gmail.com' },
                     ].map((link) => (
                         <a
                             key={link.alt}
