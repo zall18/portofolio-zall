@@ -8,7 +8,7 @@ const QUESTS = [
         title: 'Mobile Quest',
         subtitle: 'Mobile App Development',
         description: 'Building high-performance mobile applications with native and cross-platform technologies. From concept to Play Store / App Store.',
-        tech: ['Kotlin', 'Flutter', 'Dart', 'Firebase'],
+        tech: ['Kotlin', 'Java', 'Flutter', 'Dart', 'Firebase'],
         features: ['Android & iOS', 'UI/UX Design', 'API Integration', 'App Store Deploy'],
     },
     {
@@ -16,7 +16,7 @@ const QUESTS = [
         title: 'Web Quest',
         subtitle: 'Web App Development',
         description: 'Crafting modern, responsive web applications with cutting-edge frameworks. Full-stack solutions from landing pages to complex platforms.',
-        tech: ['Next.js', 'React', 'TypeScript', 'Node.js'],
+        tech: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Laravel', 'PHP', 'MySQL'],
         features: ['Responsive Design', 'SEO Optimized', 'Full-Stack', 'Database Setup'],
     },
     {

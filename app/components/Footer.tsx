@@ -3,7 +3,7 @@ export default function Footer() {
         <footer className="relative py-8 px-4">
             {/* Pixel Divider */}
             <div className="pixel-divider mb-8" />
-
+ 
             <div className="max-w-4xl mx-auto text-center space-y-4">
                 {/* Social Links Row */}
                 <div className="flex justify-center gap-4">
