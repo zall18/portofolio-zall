@@ -145,9 +145,9 @@ function PhotoCard() {
         <div className="relative group">
             <div className="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-[var(--card-blue)] border-3 border-[var(--shadow-dark)] shadow-[8px_8px_0px_0px_var(--card-pink)] flex justify-center items-center overflow-hidden transition-all duration-300 group-hover:shadow-[12px_12px_0px_0px_var(--card-pink)] group-hover:-translate-x-1 group-hover:-translate-y-1">
                 <img
-                    src="github-icon.png"
+                    src="profile.png"
                     alt="Rizal's Profile"
-                    className="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 object-contain"
+                    className="w-80 h-80 md:w-80 md:h-80 lg:w-80 lg:h-80 object-contain"
                 />
             </div>
             {/* Decorative pixel corners */}
