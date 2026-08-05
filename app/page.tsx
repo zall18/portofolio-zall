@@ -12,7 +12,7 @@ import Skills from "./components/Skills";
 
 export default function Home() {
   return (
-    <div className="bg-[var(--background)] min-h-screen">
+    <main className="bg-[var(--background)] min-h-screen">
       <Navbar />
       <Hero />
       <AboutMe />
@@ -24,6 +24,6 @@ export default function Home() {
       <Certifications />
       <ContactMe />
       <Footer />
-    </div>
+    </main>
   );
 }
