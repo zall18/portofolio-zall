@@ -11,33 +11,33 @@ const customFonst = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.rizll.tech'),
   title: {
-    default: "My Portfolio | Rizll",
-    template: "%s | Rizll"
+    default: "Muhamad Rizal Fikri | Web Developer Portfolio",
+    template: "%s | Muhamad Rizal Fikri"
   },
-  description: "Portfolio of Zall - A showcase of my projects, skills, and experiences.",
-  keywords: ["Portfolio", "Zall", "Web Developer", "Frontend Developer", "Next.js", "React"],
-  authors: [{ name: "Zall" }],
-  creator: "Zall",
+  description: "Portfolio of Muhamad Rizal Fikri - A showcase of my projects, skills, and experiences as a Web Developer.",
+  keywords: ["Muhamad Rizal Fikri", "Rizal Fikri", "Portfolio", "Zall", "Web Developer", "Frontend Developer", "Next.js", "React"],
+  authors: [{ name: "Muhamad Rizal Fikri" }],
+  creator: "Muhamad Rizal Fikri",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.rizll.tech",
-    title: "My Portfolio | Rizll",
-    description: "Portfolio of Zall - A showcase of my projects, skills, and experiences.",
-    siteName: "Rizll Portfolio",
+    title: "Muhamad Rizal Fikri | Web Developer Portfolio",
+    description: "Portfolio of Muhamad Rizal Fikri - A showcase of my projects, skills, and experiences as a Web Developer.",
+    siteName: "Muhamad Rizal Fikri Portfolio",
     images: [
       {
         url: "/api/og", // This would be the OG image path, we can leave it as default or point to a specific image later
         width: 1200,
         height: 630,
-        alt: "Rizll Portfolio",
+        alt: "Muhamad Rizal Fikri Portfolio",
       }
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "My Portfolio | Rizll",
-    description: "Portfolio of Zall - A showcase of my projects, skills, and experiences.",
+    title: "Muhamad Rizal Fikri | Web Developer Portfolio",
+    description: "Portfolio of Muhamad Rizal Fikri - A showcase of my projects, skills, and experiences as a Web Developer.",
     creator: "@zall",
   },
   alternates: {
