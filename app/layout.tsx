@@ -14,16 +14,16 @@ export const metadata: Metadata = {
     default: "Muhamad Rizal Fikri | Web Developer Portfolio",
     template: "%s | Muhamad Rizal Fikri"
   },
-  description: "Portfolio of Muhamad Rizal Fikri - A showcase of my projects, skills, and experiences as a Web Developer.",
-  keywords: ["Muhamad Rizal Fikri", "Rizal Fikri", "Portfolio", "Zall", "Web Developer", "Frontend Developer", "Next.js", "React"],
+  description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang fokus pada pengembangan aplikasi menggunakan Next.js, Laravel, dan Flutter.",
+  keywords: ["Muhamad Rizal Fikri", "Rizal Fikri", "Portfolio", "Zall", "Web Developer", "Backend Developer", "Mobile Developer", "Next.js", "Laravel", "Flutter", "Sistem Informasi"],
   authors: [{ name: "Muhamad Rizal Fikri" }],
   creator: "Muhamad Rizal Fikri",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "id_ID",
     url: "https://www.rizll.tech",
     title: "Muhamad Rizal Fikri | Web Developer Portfolio",
-    description: "Portfolio of Muhamad Rizal Fikri - A showcase of my projects, skills, and experiences as a Web Developer.",
+    description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang fokus pada pengembangan aplikasi menggunakan Next.js, Laravel, dan Flutter.",
     siteName: "Muhamad Rizal Fikri Portfolio",
     images: [
       {
@@ -37,11 +37,17 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Muhamad Rizal Fikri | Web Developer Portfolio",
-    description: "Portfolio of Muhamad Rizal Fikri - A showcase of my projects, skills, and experiences as a Web Developer.",
+    description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang fokus pada pengembangan aplikasi.",
     creator: "@zall",
   },
   alternates: {
     canonical: "/",
+  },
+
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
   },
 }
 

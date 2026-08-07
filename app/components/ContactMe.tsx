@@ -189,6 +189,7 @@ export default function ContactMe() {
                                     key={link.alt}
                                     href={link.href}
                                     target="_blank"
+                                    aria-label={link.alt}
                                     className="flex items-center gap-3 p-3 bg-[var(--card-blue)]/20 border-2 border-[var(--shadow-dark)] shadow-[3px_3px_0px_0px_var(--shadow-dark)] hover:shadow-[1px_1px_0px_0px_var(--shadow-dark)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-150 group"
                                 >
                                     <div className="w-6 h-6 flex-shrink-0">

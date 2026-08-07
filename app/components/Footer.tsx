@@ -16,6 +16,7 @@ export default function Footer() {
                         <a
                             key={link.alt}
                             href={link.href}
+                            aria-label={link.alt}
                             className="w-8 h-8 p-1.5 bg-[var(--card-pink)] border-2 border-[var(--shadow-dark)] shadow-[2px_2px_0px_0px_var(--shadow-dark)] hover:shadow-[0px_0px_0px_0px_var(--shadow-dark)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-150"
                         >
                             <img src={link.icon} alt={link.alt} className="w-full h-full object-contain" />

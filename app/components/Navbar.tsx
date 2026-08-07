@@ -110,6 +110,7 @@ export default function Navbar() {
                     {/* Logo — retro box style */}
                     <a
                         href="#"
+                        aria-label="Kembali ke atas"
                         onClick={(e) => {
                             e.preventDefault()
                             window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -222,6 +223,7 @@ export default function Navbar() {
                                 <li key={link.alt}>
                                     <a
                                         href={link.href}
+                                        aria-label={link.alt}
                                         className="
                                             block w-8 h-8 p-1.5
                                             bg-[var(--card-pink)] border-2 border-[var(--shadow-dark)]
@@ -331,6 +333,7 @@ export default function Navbar() {
                                     <li key={link.alt}>
                                         <a
                                             href={link.href}
+                                            aria-label={link.alt}
                                             className="
                                                 block w-9 h-9 p-1.5
                                                 bg-[var(--card-pink)] border-2 border-[var(--shadow-dark)]
