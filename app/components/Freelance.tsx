@@ -120,9 +120,9 @@ export default function Freelance() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="section-header">⚔️ Quest Board</h2>
+                <h2 className="section-header">⚔️ Freelance Services</h2>
                 <p className="text-[var(--text-dark)] mt-6 text-sm opacity-70 uppercase tracking-widest">
-                    ▸ Freelance Services ▸ Available for Hire ▸ Choose Your Quest
+                    ▸ Quest Board ▸ Available for Hire ▸ Choose Your Quest
                 </p>
             </motion.div>
 

@@ -2,16 +2,67 @@
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef, useEffect, useState } from "react"
-import TypewriterComponent from "typewriter-effect"
 
-const PARTICLES = [...Array(30)].map((_, i) => ({
+const PINK_PARTICLES = [...Array(10)].map((_, i) => ({
     id: i,
     left: `${(i * 37 + 13) % 100}%`,
     top: `${(i * 53 + 29) % 100}%`,
-    size: ((i * 7) % 3) + 2,  // 2-4px pixel squares
-    duration: ((i * 17) % 30) / 10 + 2,
+    size: ((i * 7) % 3) + 2,
+    duration: ((i * 17) % 30) / 10 + 3,
     delay: ((i * 19) % 20) / 10,
 }));
+
+const BLUE_PARTICLES = [...Array(5)].map((_, i) => ({
+    id: i,
+    left: `${(i * 47 + 23) % 100}%`,
+    top: `${(i * 61 + 17) % 100}%`,
+    size: ((i * 5) % 2) + 2,
+    duration: ((i * 13) % 25) / 10 + 3,
+    delay: ((i * 11) % 15) / 10,
+}));
+
+const ROLES = [
+    "Software Developer",
+    "Fullstack Developer",
+    "Mobile Developer",
+    "Web Developer",
+];
+
+function RetroTypewriter() {
+    const [index, setIndex] = useState(0);
+    const [subIndex, setSubIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        const currentWord = ROLES[index];
+
+        if (subIndex === currentWord.length && !isDeleting) {
+            const timeout = setTimeout(() => setIsDeleting(true), 1600);
+            return () => clearTimeout(timeout);
+        }
+
+        if (subIndex === 0 && isDeleting) {
+            const timeout = setTimeout(() => {
+                setIsDeleting(false);
+                setIndex((prev) => (prev + 1) % ROLES.length);
+            }, 300);
+            return () => clearTimeout(timeout);
+        }
+
+        const timeout = setTimeout(() => {
+            setSubIndex((prev) => prev + (isDeleting ? -1 : 1));
+        }, isDeleting ? 40 : 80);
+
+        return () => clearTimeout(timeout);
+    }, [subIndex, index, isDeleting]);
+
+    return (
+        <span className="text-white">
+            {ROLES[index].substring(0, subIndex)}
+            <span className="text-[var(--card-yellow)] animate-pulse ml-0.5">█</span>
+        </span>
+    );
+}
 
 export default function Hero() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -60,15 +111,15 @@ export default function Hero() {
     };
 
     return (
-        <div ref={containerRef} className="relative h-[300vh] mt-10">
+        <div ref={containerRef} className="relative h-[200vh] mt-10">
             {/* Retro grid background */}
             <div className="absolute inset-0 retro-grid opacity-50" />
 
             {/* Animated pixel particles (square, not round) */}
             <div className="absolute inset-0 overflow-hidden">
-                {PARTICLES.map((particle) => (
+                {PINK_PARTICLES.map((particle) => (
                     <motion.div
-                        key={particle.id}
+                        key={`pink-${particle.id}`}
                         className="absolute bg-[var(--card-pink)]"
                         style={{
                             left: particle.left,
@@ -90,15 +141,15 @@ export default function Hero() {
                     />
                 ))}
                 {/* Blue particles layer */}
-                {PARTICLES.slice(0, 15).map((particle) => (
+                {BLUE_PARTICLES.map((particle) => (
                     <motion.div
                         key={`blue-${particle.id}`}
                         className="absolute bg-[var(--card-blue)]"
                         style={{
-                            left: `${(parseInt(particle.left) + 50) % 100}%`,
-                            top: `${(parseInt(particle.top) + 30) % 100}%`,
-                            width: particle.size - 1 || 1,
-                            height: particle.size - 1 || 1,
+                            left: particle.left,
+                            top: particle.top,
+                            width: particle.size,
+                            height: particle.size,
                             opacity: 0.2,
                         }}
                         animate={{
@@ -119,7 +170,7 @@ export default function Hero() {
                 <div className="absolute inset-0 scanline-overlay pointer-events-none" />
 
                 <motion.div
-                    style={{ scale, borderRadius, rotate }}
+                    style={{ scale, borderRadius, rotate, opacity }}
                     className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]"
                 >
                     <motion.div
@@ -150,25 +201,9 @@ export default function Hero() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
-                                className="text-xl md:text-2xl lg:text-3xl font-semibold min-h-[2em]"
+                                className="text-xl md:text-2xl lg:text-3xl font-semibold min-h-[2em] flex items-center justify-center"
                             >
-                                <TypewriterComponent
-                                    options={{
-                                        strings: [
-                                            "Software Developer",
-                                            "Fullstack Developer",
-                                            "Mobile Developer",
-                                            "Web Developer",
-                                        ],
-                                        autoStart: true,
-                                        loop: true,
-                                        delay: 75,
-                                        deleteSpeed: 50,
-                                        cursor: "█",
-                                        cursorClassName: "text-[var(--card-yellow)]",
-                                        wrapperClassName: "text-white",
-                                    }}
-                                />
+                                <RetroTypewriter />
                             </motion.div>
                         </div>
 

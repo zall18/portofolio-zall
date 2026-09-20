@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import "./globals.css";
 import localFont from 'next/font/local'
 
-const customFonst = localFont({
+const customFont = localFont({
   src: './fonts/DotGothic16-Regular.ttf',
   variable: '--font-dotgothic',
   weight: '400',
@@ -11,7 +11,7 @@ const customFonst = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.rizll.tech'),
   title: {
-    default: "Muhamad Rizal Fikri | Web Developer Portfolio",
+    default: "Muhamad Rizal Fikri | Web & Mobile Developer Portfolio",
     template: "%s | Muhamad Rizal Fikri"
   },
   description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang fokus pada pengembangan aplikasi menggunakan Next.js, Laravel, dan Flutter.",
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     url: "https://www.rizll.tech",
-    title: "Muhamad Rizal Fikri | Web Developer Portfolio",
-    description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang fokus pada pengembangan aplikasi menggunakan Next.js, Laravel, dan Flutter.",
+    title: "Muhamad Rizal Fikri | Web & Mobile Developer Portfolio",
+    description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang berfokus pada Next.js, Laravel, dan Flutter.",
     siteName: "Muhamad Rizal Fikri Portfolio",
     images: [
       {
-        url: "/api/og", // This would be the OG image path, we can leave it as default or point to a specific image later
+        url: "/api/og",
         width: 1200,
         height: 630,
         alt: "Muhamad Rizal Fikri Portfolio",
@@ -36,9 +36,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhamad Rizal Fikri | Web Developer Portfolio",
-    description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang fokus pada pengembangan aplikasi.",
+    title: "Muhamad Rizal Fikri | Web & Mobile Developer Portfolio",
+    description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang berfokus pada Next.js, Laravel, dan Flutter.",
     creator: "@zall",
+    images: ["/api/og"],
   },
   alternates: {
     canonical: "/",
@@ -57,10 +58,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-    >
-      <body className={`${customFonst.className} min-h-full flex flex-col`}>{children}</body>
+    <html lang="id">
+      <body className={`${customFont.className} min-h-full flex flex-col`}>{children}</body>
     </html>
   );
 }

@@ -2,14 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Image from 'next/image'
 import emailjs from '@emailjs/browser'
-
-const SOCIAL_LINKS = [
-    { icon: 'github-icon.png', alt: 'GitHub', href: 'https://github.com/zall18', label: 'GitHub' },
-    { icon: 'linkedin-icon.webp', alt: 'LinkedIn', href: 'https://www.linkedin.com/in/muhamad-rizal-fikri-a77b13250', label: 'LinkedIn' },
-    { icon: 'ig-icon.jpg', alt: 'Instagram', href: 'https://www.instagram.com/rizlll_/', label: 'Instagram' },
-    { icon: 'gmail-icon.png', alt: 'Gmail', href: 'mailto:muhamadrizalf1112@gmail.com', label: 'Email' },
-]
+import { SOCIAL_LINKS } from '../constants/socials'
 
 export default function ContactMe() {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -19,10 +14,14 @@ export default function ContactMe() {
         e.preventDefault()
         setStatus('sending')
 
+        const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ''
+        const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ''
+        const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
+
         try {
             await emailjs.send(
-                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_ramjfkg',
-                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_ehgjzav',
+                serviceId,
+                templateId,
                 {
                     name: formData.name,
                     email: formData.email,
@@ -32,7 +31,7 @@ export default function ContactMe() {
                         timeStyle: 'short',
                     }),
                 },
-                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'bdavAocId-QoCUulf'
+                publicKey
             )
             setStatus('sent')
             setFormData({ name: '', email: '', message: '' })
@@ -189,11 +188,18 @@ export default function ContactMe() {
                                     key={link.alt}
                                     href={link.href}
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     aria-label={link.alt}
                                     className="flex items-center gap-3 p-3 bg-[var(--card-blue)]/20 border-2 border-[var(--shadow-dark)] shadow-[3px_3px_0px_0px_var(--shadow-dark)] hover:shadow-[1px_1px_0px_0px_var(--shadow-dark)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-150 group"
                                 >
-                                    <div className="w-6 h-6 flex-shrink-0">
-                                        <img src={link.icon} alt={link.alt} className="w-full h-full object-contain" />
+                                    <div className="relative w-6 h-6 flex-shrink-0">
+                                        <Image
+                                            src={link.icon}
+                                            alt={link.alt}
+                                            width={24}
+                                            height={24}
+                                            className="w-full h-full object-contain"
+                                        />
                                     </div>
                                     <span className="text-xs font-bold text-[var(--text-dark)] group-hover:text-[var(--card-pink)] transition-colors">
                                         {link.label}

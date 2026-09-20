@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import { SOCIAL_LINKS } from '../constants/socials'
+
 export default function Footer() {
     return (
         <footer className="relative py-8 px-4">
@@ -7,19 +10,22 @@ export default function Footer() {
             <div className="max-w-4xl mx-auto text-center space-y-4">
                 {/* Social Links Row */}
                 <div className="flex justify-center gap-4">
-                    {[
-                        { icon: 'github-icon.png', alt: 'GitHub', href: 'https://github.com/zall18' },
-                        { icon: 'linkedin-icon.webp', alt: 'LinkedIn', href: 'https://www.linkedin.com/in/muhamad-rizal-fikri-a77b13250' },
-                        { icon: 'ig-icon.jpg', alt: 'Instagram', href: 'https://www.instagram.com/rizlll_/' },
-                        { icon: 'gmail-icon.png', alt: 'Gmail', href: 'mailto:muhamadrizalf1112@gmail.com' },
-                    ].map((link) => (
+                    {SOCIAL_LINKS.map((link) => (
                         <a
                             key={link.alt}
                             href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             aria-label={link.alt}
-                            className="w-8 h-8 p-1.5 bg-[var(--card-pink)] border-2 border-[var(--shadow-dark)] shadow-[2px_2px_0px_0px_var(--shadow-dark)] hover:shadow-[0px_0px_0px_0px_var(--shadow-dark)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-150"
+                            className="relative w-8 h-8 p-1.5 bg-[var(--card-pink)] border-2 border-[var(--shadow-dark)] shadow-[2px_2px_0px_0px_var(--shadow-dark)] hover:shadow-[0px_0px_0px_0px_var(--shadow-dark)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-150 block"
                         >
-                            <img src={link.icon} alt={link.alt} className="w-full h-full object-contain" />
+                            <Image
+                                src={link.icon}
+                                alt={link.alt}
+                                width={20}
+                                height={20}
+                                className="w-full h-full object-contain"
+                            />
                         </a>
                     ))}
                 </div>

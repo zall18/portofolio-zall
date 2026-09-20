@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import Image from 'next/image'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 
 export default function AboutMe() {
@@ -144,10 +145,14 @@ function PhotoCard() {
     return (
         <div className="relative group">
             <div className="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-[var(--card-blue)] border-3 border-[var(--shadow-dark)] shadow-[8px_8px_0px_0px_var(--card-pink)] flex justify-center items-center overflow-hidden transition-all duration-300 group-hover:shadow-[12px_12px_0px_0px_var(--card-pink)] group-hover:-translate-x-1 group-hover:-translate-y-1">
-                <img
-                    src="profile.png"
+                <Image
+                    src="/profile.webp"
                     alt="Rizal's Profile"
-                    className="w-80 h-80 md:w-80 md:h-80 lg:w-80 lg:h-80 object-contain"
+                    width={320}
+                    height={320}
+                    priority
+                    sizes="(max-width: 768px) 224px, (max-width: 1024px) 256px, 288px"
+                    className="w-full h-full object-contain"
                 />
             </div>
             {/* Decorative pixel corners */}

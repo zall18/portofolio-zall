@@ -8,7 +8,7 @@ const PROJECTS = [
         description: 'An integrated hotel service management application (B2B) designed specifically for use on In-Room Tablets.',
         tech: ['Flutter', 'Android Native', 'REST API'],
         color: 'var(--card-pink)',
-        link: '#'
+        link: ''
     },
     {
         title: 'TB Care Mobile',
@@ -112,15 +112,21 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
                     </div>
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-[var(--shadow-dark)]/0 group-hover:bg-[var(--shadow-dark)]/40 transition-all duration-300 flex items-center justify-center">
-                        <a href={project.link} target="_blank">
-                            <motion.span
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileHover={{ opacity: 1, scale: 1 }}
-                                className="text-white font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[var(--card-pink)] px-3 py-1 border-2 border-white shadow-[3px_3px_0px_0px_rgba(255,255,255,0.3)]"
-                            >
-                                View Project →
-                            </motion.span>
-                        </a>
+                        {project.link && project.link !== '#' ? (
+                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                <motion.span
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    whileHover={{ opacity: 1, scale: 1 }}
+                                    className="text-white font-bold text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[var(--card-pink)] px-3 py-1 border-2 border-white shadow-[3px_3px_0px_0px_rgba(255,255,255,0.3)] inline-block"
+                                >
+                                    View Project →
+                                </motion.span>
+                            </a>
+                        ) : (
+                            <span className="text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[var(--card-yellow)] text-[var(--shadow-dark)] px-3 py-1.5 border-2 border-[var(--shadow-dark)] shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)]">
+                                🔒 Internal B2B Project
+                            </span>
+                        )}
                     </div>
                 </div>
 
@@ -161,9 +167,9 @@ export default function Projects() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="section-header">Select Project</h2>
+                <h2 className="section-header">Featured Projects</h2>
                 <p className="text-[var(--text-dark)] mt-6 text-sm opacity-70 uppercase tracking-widest">
-                    ▸ Things I&apos;ve built ▸ Click to explore
+                    ▸ Select Project ▸ Things I&apos;ve built ▸ Click to explore
                 </p>
             </motion.div>
 

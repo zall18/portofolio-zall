@@ -1,7 +1,9 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
+import { SOCIAL_LINKS } from '../constants/socials'
 
 const MAIN_NAV_ITEMS = [
     { label: 'About Me!', href: '#about' },
@@ -25,13 +27,6 @@ const ALL_NAV_ITEMS = [
     MORE_NAV_ITEMS[1],
     MORE_NAV_ITEMS[2],
     MAIN_NAV_ITEMS[4],
-]
-
-const SOCIAL_LINKS = [
-    { icon: 'github-icon.png', alt: 'GitHub', href: 'https://github.com/zall18' },
-    { icon: 'linkedin-icon.webp', alt: 'LinkedIn', href: 'https://www.linkedin.com/in/muhamad-rizal-fikri-a77b13250' },
-    { icon: 'ig-icon.jpg', alt: 'Instagram', href: 'https://www.instagram.com/rizlll_/' },
-    { icon: 'gmail-icon.png', alt: 'Gmail', href: 'mailto:muhamadrizalf1112@gmail.com' },
 ]
 
 export default function Navbar() {
@@ -223,6 +218,8 @@ export default function Navbar() {
                                 <li key={link.alt}>
                                     <a
                                         href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         aria-label={link.alt}
                                         className="
                                             block w-8 h-8 p-1.5
@@ -233,17 +230,23 @@ export default function Navbar() {
                                             hover:bg-[var(--card-blue)]
                                             active:shadow-[0px_0px_0px_0px_var(--shadow-dark)]
                                             active:translate-x-[3px] active:translate-y-[3px]
-                                            transition-all duration-100
+                                            transition-all duration-100 relative
                                         "
                                     >
-                                        <img src={link.icon} alt={link.alt} className="w-full h-full object-contain" />
+                                        <Image
+                                            src={link.icon}
+                                            alt={link.alt}
+                                            width={20}
+                                            height={20}
+                                            className="w-full h-full object-contain"
+                                        />
                                     </a>
                                 </li>
                             ))}
                         </ul>
                         <a
-                            href="/cv.pdf"
-                            download
+                            href="/resume.pdf"
+                            download="CV_Rizal.pdf"
                             className="
                                 block px-3 py-1 text-sm font-bold uppercase tracking-wide
                                 bg-[var(--card-yellow)] text-[var(--shadow-dark)]
@@ -333,6 +336,8 @@ export default function Navbar() {
                                     <li key={link.alt}>
                                         <a
                                             href={link.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             aria-label={link.alt}
                                             className="
                                                 block w-9 h-9 p-1.5
@@ -341,10 +346,16 @@ export default function Navbar() {
                                                 hover:shadow-[1px_1px_0px_0px_var(--shadow-dark)]
                                                 hover:translate-x-0.5 hover:translate-y-0.5
                                                 hover:bg-[var(--card-blue)]
-                                                transition-all duration-100
+                                                transition-all duration-100 relative
                                             "
                                         >
-                                            <img src={link.icon} alt={link.alt} className="w-full h-full object-contain" />
+                                            <Image
+                                                src={link.icon}
+                                                alt={link.alt}
+                                                width={24}
+                                                height={24}
+                                                className="w-full h-full object-contain"
+                                            />
                                         </a>
                                     </li>
                                 ))}

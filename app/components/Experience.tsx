@@ -7,7 +7,7 @@ const EXPERIENCES = [
         level: 1,
         title: 'Mobile Developer Intern',
         company: 'PT Chlorine Indonesia',
-        period: 'Sep 2024 — Dec 2023',
+        period: 'Sep 2024 — Dec 2024',
         description: 'Designing and developing an employee attendance mobile application using Kotlin and integrating it with a REST API.',
         skills: ['Kotlin', 'REST API'],
     },
@@ -21,7 +21,7 @@ const EXPERIENCES = [
     },
     {
         level: 3,
-        title: 'Telkom University High School Student Ambasador',
+        title: 'Telkom University High School Student Ambassador',
         company: 'Admission Telkom University',
         period: 'Jun 2025 - Jan 2026',
         description: 'I served as an ambassador for Telkom University, responsible for introducing and promoting the university to high school students across Indonesia. My role involved conducting engaging presentations, organizing interactive booths at educational fairs, and providing personalized guidance to prospective students and parents.',
@@ -48,9 +48,9 @@ export default function Experience() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="section-header">Level Progress</h2>
+                <h2 className="section-header">Work Experience</h2>
                 <p className="text-[var(--text-dark)] mt-6 text-sm opacity-70 uppercase tracking-widest">
-                    ▸ My journey so far ▸ Experience unlocked
+                    ▸ Level Progress ▸ My journey so far ▸ Experience unlocked
                 </p>
             </motion.div>
 

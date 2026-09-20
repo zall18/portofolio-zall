@@ -8,35 +8,35 @@ const CERTIFICATIONS = [
         issuer: 'Google',
         year: '2024',
         level: 'INTERMEDIATE',
-        credentialUrl: '#',
+        credentialUrl: '',
     },
     {
         title: 'Google AI',
-        issuer: 'Coursera',
+        issuer: 'Coursera / Google',
         year: '2026',
         level: 'BEGINNER',
-        credentialUrl: '#',
+        credentialUrl: 'https://www.credly.com/badges/3f979cbb-2188-4592-8727-88fed922f8d1/linked_in_profile',
     },
     {
         title: 'Data Analyst with Python',
         issuer: 'Coursera',
         year: '2026',
         level: 'INTERMEDIATE',
-        credentialUrl: '#',
+        credentialUrl: 'https://www.coursera.org/account/accomplishments/specialization/SIKKTO5LHR1R',
     },
     {
         title: 'SAP100 (Business Processes in SAP S/4HANA)',
         issuer: 'SAP',
         year: '2025',
         level: 'INTERMEDIATE',
-        credentialUrl: '#',
+        credentialUrl: '',
     },
     {
         title: 'SCM500 (Processes in Procurement)',
         issuer: 'SAP',
         year: '2025',
         level: 'INTERMEDIATE',
-        credentialUrl: '#',
+        credentialUrl: '',
     }
 ]
 
@@ -57,9 +57,9 @@ export default function Certifications() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="section-header">📜 Skill Scrolls</h2>
+                <h2 className="section-header">Certifications & Licenses</h2>
                 <p className="text-[var(--text-dark)] mt-6 text-sm opacity-70 uppercase tracking-widest">
-                    ▸ Certifications unlocked ▸ Knowledge proven
+                    ▸ Skill Scrolls ▸ Certifications unlocked ▸ Knowledge proven
                 </p>
             </motion.div>
 
@@ -106,7 +106,7 @@ export default function Certifications() {
                             </p>
 
                             {/* View Credential Link */}
-                            {cert.credentialUrl && (
+                            {cert.credentialUrl && cert.credentialUrl !== '#' ? (
                                 <a
                                     href={cert.credentialUrl}
                                     target="_blank"
@@ -115,6 +115,10 @@ export default function Certifications() {
                                 >
                                     View Credential →
                                 </a>
+                            ) : (
+                                <span className="block text-center text-xs font-bold uppercase tracking-wider px-3 py-2 bg-[var(--foreground)] border-2 border-[var(--shadow-dark)] shadow-[2px_2px_0px_0px_var(--shadow-dark)] text-[var(--text-dark)] opacity-60">
+                                    Verified Certificate ✓
+                                </span>
                             )}
                         </div>
                     </motion.div>

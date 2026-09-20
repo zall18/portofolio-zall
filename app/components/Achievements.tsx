@@ -70,9 +70,9 @@ export default function Achievements() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="section-header">🏆 Trophy Room</h2>
+                <h2 className="section-header">🏆 Honors & Achievements</h2>
                 <p className="text-[var(--text-dark)] mt-6 text-sm opacity-70 uppercase tracking-widest">
-                    ▸ Achievements unlocked ▸ Victories collected
+                    ▸ Trophy Room ▸ Achievements unlocked ▸ Victories collected
                 </p>
             </motion.div>
 

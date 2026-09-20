@@ -85,9 +85,9 @@ export default function Skills() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-12 px-4"
             >
-                <h2 className="section-header">Game Select</h2>
+                <h2 className="section-header">Technical Skills</h2>
                 <p className="text-[var(--text-dark)] mt-6 text-sm opacity-70 uppercase tracking-widest">
-                    ▸ Hover to reveal skill ▸ Technologies I work with
+                    ▸ Game Select ▸ Technologies I work with
                 </p>
             </motion.div>
 
