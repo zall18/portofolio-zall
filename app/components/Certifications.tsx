@@ -37,6 +37,13 @@ const CERTIFICATIONS = [
         year: '2025',
         level: 'INTERMEDIATE',
         credentialUrl: '',
+    },
+    {
+        title: 'Desainer Multimedia Muda',
+        issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
+        year: '2024',
+        level: 'INTERMEDIATE',
+        credentialUrl: 'https://drive.google.com/file/d/1_UaU20Pyz_i5gyatSe_xWLV1nGFStTkf/view?usp=drive_link',
     }
 ]
 

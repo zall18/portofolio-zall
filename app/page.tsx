@@ -50,7 +50,43 @@ export default function Home() {
           alumniOf: {
             '@type': 'EducationalOrganization',
             name: 'Telkom University'
-          }
+          },
+          award: [
+            'Medallion for Excellence - LKS National Level in IT Software Solution for Business (2024)',
+            '1st Place Gold Medal - LKS West Java Provincial Level in IT Software Solution for Business (2024)',
+            '1st Place - LKS District Level in IT Software Solution for Business (2024)',
+            'National Top 10 Finalist - Liga SMK Software Engineering (2023)',
+            '3rd Place - BCC Mini Competition ERP (2026)'
+          ],
+          hasCredential: [
+            {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'Desainer Multimedia Muda',
+              recognizedBy: {
+                '@type': 'Organization',
+                name: 'Badan Nasional Sertifikasi Profesi (BNSP)'
+              },
+              url: 'https://drive.google.com/file/d/1_UaU20Pyz_i5gyatSe_xWLV1nGFStTkf/view?usp=drive_link'
+            },
+            {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'Google AI',
+              recognizedBy: {
+                '@type': 'Organization',
+                name: 'Google'
+              },
+              url: 'https://www.credly.com/badges/3f979cbb-2188-4592-8727-88fed922f8d1/linked_in_profile'
+            },
+            {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'Data Analyst with Python',
+              recognizedBy: {
+                '@type': 'Organization',
+                name: 'Coursera'
+              },
+              url: 'https://www.coursera.org/account/accomplishments/specialization/SIKKTO5LHR1R'
+            }
+          ]
         }
       },
       {
