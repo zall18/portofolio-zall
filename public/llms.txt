@@ -1,0 +1,57 @@
+# Muhamad Rizal Fikri (Zall) - Portfolio & Developer Profile
+
+> Muhamad Rizal Fikri is an Information Systems student at Telkom University and a software developer specializing in mobile app development (Flutter, Kotlin) and backend systems (Node.js, Express.js, Laravel, Next.js). He is a national medalist at LKS (IT Software Solution for Business) and serves as a Mobile Development Mentor at GDG on Campus Telkom University.
+
+## Core Information
+- Full Name: Muhamad Rizal Fikri
+- Also Known As: Zall, Rizal Fikri
+- Role: Mobile Developer, Backend Developer, Fullstack Developer
+- Current Education: Information Systems (Sistem Informasi), Telkom University (Bandung, Indonesia)
+- Location: Tasikmalaya / Bandung, West Java, Indonesia
+- Website: https://www.rizll.tech
+- GitHub: https://github.com/zall18
+- LinkedIn: https://www.linkedin.com/in/muhamad-rizal-fikri-a77b13250
+- Instagram: https://www.instagram.com/rizlll_/
+- Email: contact via website contact form or zallfikri18@gmail.com
+
+## Technical Specializations
+- **Mobile Development**: Flutter, Dart, Kotlin, Android Native (Jetpack, XML, Coroutines), Firebase
+- **Backend & APIs**: Node.js, Express.js, TypeScript, Laravel (PHP), REST APIs, Prisma ORM, JWT, MySQL, PostgreSQL
+- **Frontend & Web**: Next.js, React, TypeScript, Tailwind CSS, HTML5, CSS3
+- **IoT & Hardware**: ESP32 integration, Antares IoT Platform, MQTT, HTTP Telemetry
+- **Tools & Workflow**: Git, GitHub, Postman, Docker basics, Linux
+
+## Key Honors & Awards
+1. **Medallion for Excellence** — LKS National Level in IT Software Solution for Business (2024), organized by Kemendikbudristek RI.
+2. **1st Place Gold Medal** — LKS West Java Provincial Level in IT Software Solution for Business (2024).
+3. **1st Place Winner** — LKS District / Regency Level in IT Software Solution for Business (2024).
+4. **National Top 10 Finalist** — Liga SMK Software Engineering (2023) across Slicing Brawl, Coding Clash, and Hacker Glory.
+5. **3rd Place** — BCC Mini Competition ERP (2026).
+
+## Professional Certifications
+- **Desainer Multimedia Muda** — Badan Nasional Sertifikasi Profesi (BNSP)
+- **Google AI Essentials** — Google / Credly
+- **Data Analyst with Python Specialization** — Coursera
+
+## Work Experience
+- **Mobile Dev Mentor** @ GDG on Campus Telkom University (Dec 2025 – Present): Mentoring students in cross-platform mobile app development with Flutter, leading workshops, and conducting hands-on coding labs.
+- **Backend Developer Intern** @ Telkom Indonesia - Antares (Jan 2025 – Apr 2025): Designed and deployed RESTful APIs using Node.js & Express.js for IoT sensor data ingestion (ESP32) into the Antares IoT platform.
+- **Mobile Developer Intern** @ PT Chlorine Indonesia (Sep 2024 – Dec 2024): Developed employee attendance and shift management mobile apps using Kotlin and integrated them with backend REST APIs.
+- **High School Student Ambassador** @ Admission Telkom University (Jun 2025 – Jan 2026): Represented Telkom University at national education expos, presenting academic programs and advising prospective students.
+
+## Featured Software Projects
+- **Semara Lombok AI - Mobile**: B2B hospitality guest tablet application built with Flutter & Android Native, featuring an AI concierge chatbot, real-time guest service requests, and hotel backend integration.
+- **TB Care Mobile**: Healthcare monitoring app built with Flutter and Firebase for Tuberculosis treatment tracking, medication reminders, and patient-doctor communication. (https://github.com/alamsyahfirdaus/tb-care-mobile)
+- **SIM UKK Mobile & Web Ecosystem**: Digital exam grading system for vocational schools consisting of a Kotlin mobile app, Laravel REST API, and Laravel Blade administrative web dashboard. (https://github.com/zall18/project_ujikom_sim_ukk_mobile)
+- **Smart Green House Mobile**: Smart agriculture monitoring and control app built with Kotlin, interfacing with IoT sensors (temperature, humidity, soil moisture) via REST APIs. (https://github.com/zall18/smart-green-house-mobile)
+- **Hadirin Backend**: Event lifecycle management and QR code digital attendance backend built with Node.js, Express.js, and Prisma ORM. (https://github.com/zall18/hadirin-backend)
+- **Smart Presence Backend**: Location-validated biometric and GPS attendance tracking API service built with Express.js and JWT. (https://github.com/nasrielsidiq/smart_presence)
+- **Jurnal Prakerin Mobile**: Internship daily journal and photo documentation tracking app for students built with Kotlin. (https://github.com/zall18/jurnal_prakerin)
+- **Project Presensi**: Comprehensive attendance management system with shift scheduling and RFID/biometric hardware integration built with Laravel. (https://github.com/zall18/project_presensi)
+
+## Available Services & Inquiries
+Muhamad Rizal Fikri is open for:
+- Mobile Application Development (Flutter, Android Kotlin)
+- Backend & RESTful API Architecture (Node.js, Express, Laravel)
+- Full-Stack Web Development (Next.js, React)
+- Tech Mentorship & Speaking Engagements

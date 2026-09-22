@@ -34,10 +34,10 @@ export default function AboutMe() {
     const textScale = useTransform(smoothProgress, [0.35, 0.5], [0.95, 1])
 
     const paragraphs = [
-        "Hey there! I'm Rizal, an Information Systems student and software developer who loves building cool, functional things.",
-        "My playground ranges from mobile development with Kotlin and Flutter to crafting solid web apps using Next.js and various backend tech. I'm all about that modern coding vibe—teaming up with AI as my daily pair-programming buddy to write cleaner code, explore new stacks, and build things a lot faster.",
-        "Lately, I've been spending my time diving into new tech trends and sharing my knowledge as a Mobile Dev mentor at GDG on Campus. When I'm away from the terminal, you can probably find me catching an F1 race (Forza Ferrari!) or hunting for a good cup of local coffee.",
-        "Always up for a chat about code, AI, or exciting new projects—let's build something awesome together!"
+        "Muhamad Rizal Fikri is a Backend and Mobile Developer from West Java, Indonesia, currently pursuing an Information Systems degree at Telkom University. He specializes in building production-ready mobile applications using Flutter and Kotlin, and scalable backend services with Node.js, Express.js, Laravel, and Next.js.",
+        "As a Medallion for Excellence awardee at the 2024 National LKS Competition (IT Software Solution for Business) by Kemendikbudristek and a 1st Place Gold Medalist at the West Java provincial level, he brings proven competitive engineering discipline to modern software development.",
+        "Currently, he serves as a Mobile Dev Mentor at GDG on Campus Telkom University, sharing hands-on knowledge in Flutter and app architecture. He actively leverages modern engineering workflows and AI pair-programming to build robust digital solutions faster.",
+        "When away from the terminal, you can find him catching an F1 race (Forza Ferrari!) or exploring local coffee spots. Always excited to collaborate on high-impact web, mobile, and IoT projects!"
     ]
 
     return (

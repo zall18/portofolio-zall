@@ -290,3 +290,87 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* ========== ARTICLE CONTENT (RETRO TYPOGRAPHY) ========== */
+.article-content h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px dashed var(--shadow-dark);
+  padding-bottom: 0.25rem;
+}
+
+.article-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--card-pink);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.article-content p {
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.article-content ul, .article-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.article-content ul {
+  list-style-type: square;
+}
+
+.article-content ol {
+  list-style-type: decimal;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.article-content pre {
+  background: var(--shadow-dark);
+  color: #fff;
+  padding: 1rem;
+  border: 2px solid var(--shadow-dark);
+  box-shadow: 4px 4px 0px 0px var(--card-pink);
+  overflow-x: auto;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+.article-content code {
+  background: rgba(45, 45, 45, 0.08);
+  color: var(--card-pink);
+  padding: 0.15rem 0.35rem;
+  border-radius: 2px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.article-content pre code {
+  background: transparent;
+  color: #aedefc;
+  padding: 0;
+}
+
+.article-content blockquote {
+  border-left: 4px solid var(--card-yellow);
+  background: rgba(255, 230, 109, 0.15);
+  padding: 0.75rem 1rem;
+  margin: 1.25rem 0;
+  font-style: italic;
+}
+
+.article-content a {
+  color: var(--card-pink);
+  text-decoration: underline;
+  font-weight: bold;
+}

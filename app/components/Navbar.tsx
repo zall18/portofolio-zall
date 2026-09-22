@@ -17,6 +17,8 @@ const MORE_NAV_ITEMS = [
     { label: '🏆 Trophies', href: '#achievements' },
     { label: '⚔️ Freelance', href: '#freelance' },
     { label: '📜 Certs', href: '#certifications' },
+    { label: '❓ FAQ', href: '#faq' },
+    { label: '📰 Blog', href: '/blog' },
 ]
 
 // All items combined for mobile menu & scroll spy
@@ -26,6 +28,8 @@ const ALL_NAV_ITEMS = [
     MAIN_NAV_ITEMS[3],
     MORE_NAV_ITEMS[1],
     MORE_NAV_ITEMS[2],
+    MORE_NAV_ITEMS[3],
+    MORE_NAV_ITEMS[4],
     MAIN_NAV_ITEMS[4],
 ]
 
@@ -43,7 +47,7 @@ export default function Navbar() {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50)
 
-            const sections = ['about', 'skills', 'experience', 'achievements', 'projects', 'freelance', 'certifications', 'contact']
+            const sections = ['about', 'skills', 'experience', 'achievements', 'projects', 'freelance', 'certifications', 'faq', 'contact']
             for (const id of [...sections].reverse()) {
                 const el = document.getElementById(id)
                 if (el) {
@@ -73,10 +77,12 @@ export default function Navbar() {
     }, [])
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-        e.preventDefault()
-        const el = document.querySelector(href)
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' })
+        if (href.startsWith('#')) {
+            e.preventDefault()
+            const el = document.querySelector(href)
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' })
+            }
         }
         setMobileOpen(false)
         setMoreOpen(false)

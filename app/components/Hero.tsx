@@ -185,24 +185,31 @@ export default function Hero() {
                         {/* Inner retro grid */}
                         <div className="absolute inset-0 retro-grid opacity-10" />
 
-                        <div className="relative z-10 text-center">
+                        <div className="relative z-10 text-center px-4">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="mb-4"
+                                className="mb-2"
                             >
-                                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 crt-glow">
-                                    Hello, I&apos;m a
+                                <span className="text-[0.7rem] md:text-xs font-bold tracking-widest text-[var(--card-yellow)] uppercase bg-[var(--shadow-dark)]/40 px-3 py-1 border border-white/20 inline-block mb-2">
+                                    ★ PLAYER ONE PORTFOLIO ★
+                                </span>
+                                <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight mb-1 crt-glow">
+                                    Muhamad Rizal Fikri
                                 </h1>
+                                <p className="text-xs md:text-sm font-medium text-white/90 mb-3 tracking-wide">
+                                    Backend &amp; Mobile Developer · Telkom University
+                                </p>
                             </motion.div>
 
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
-                                className="text-xl md:text-2xl lg:text-3xl font-semibold min-h-[2em] flex items-center justify-center"
+                                className="text-sm md:text-lg lg:text-xl font-semibold min-h-[2em] flex items-center justify-center"
                             >
+                                <span className="text-white/80 text-xs md:text-sm mr-2 font-normal">Leveling up as</span>
                                 <RetroTypewriter />
                             </motion.div>
                         </div>
