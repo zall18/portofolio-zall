@@ -42,6 +42,18 @@ const securityHeaders = [
   {
     key: 'Content-Security-Policy',
     value: cspHeader.replace(/\n/g, '')
+  },
+  {
+    key: 'Cross-Origin-Opener-Policy',
+    value: 'same-origin'
+  },
+  {
+    key: 'Cross-Origin-Embedder-Policy',
+    value: 'credentialless'
+  },
+  {
+    key: 'Cross-Origin-Resource-Policy',
+    value: 'same-origin'
   }
 ];
 

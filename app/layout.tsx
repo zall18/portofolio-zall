@@ -18,6 +18,28 @@ export const metadata: Metadata = {
   keywords: ["Muhamad Rizal Fikri", "Rizal Fikri", "Portfolio", "Zall", "Web Developer", "Backend Developer", "Mobile Developer", "Next.js", "Laravel", "Flutter", "Sistem Informasi"],
   authors: [{ name: "Muhamad Rizal Fikri" }],
   creator: "Muhamad Rizal Fikri",
+  robots: {
+    index: true,
+    follow: true,
+    'max-snippet': -1,
+    'max-image-preview': 'large' as const,
+    'max-video-preview': -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large' as const,
+      'max-video-preview': -1,
+    },
+  },
+  manifest: '/manifest.json',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     type: "website",
     locale: "id_ID",
@@ -43,6 +65,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+    languages: {
+      'id': 'https://www.rizll.tech',
+    },
   },
 
   formatDetection: {
@@ -59,7 +84,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${customFont.className} min-h-full flex flex-col`}>{children}</body>
+      <head>
+        <link rel="alternate" type="text/plain" href="/llms.txt" />
+        <meta name="theme-color" content="#ff4b82" />
+      </head>
+      <body className={`${customFont.className} min-h-full flex flex-col`}>
+        <noscript>
+          <p style={{ padding: '2rem', textAlign: 'center' }}>This site works best with JavaScript enabled. Please enable JavaScript to view the full portfolio.</p>
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }

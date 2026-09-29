@@ -17,11 +17,42 @@ export default function Home() {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@type': 'Organization',
+        '@id': 'https://www.rizll.tech/#organization',
+        name: 'Muhamad Rizal Fikri',
+        url: 'https://www.rizll.tech',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Bandung',
+          addressRegion: 'West Java',
+          addressCountry: 'ID',
+        },
+        sameAs: [
+          'https://github.com/zall18',
+          'https://www.linkedin.com/in/muhamad-rizal-fikri-a77b13250',
+          'https://www.instagram.com/rizlll_/',
+        ],
+        knowsAbout: [
+          'Mobile Application Development',
+          'Backend Web Development',
+          'Next.js',
+          'Flutter',
+          'Kotlin',
+          'Laravel',
+          'Node.js',
+          'REST API',
+          'Internet of Things (IoT)',
+          'ESP32',
+        ],
+      },
+      {
         '@type': 'ProfilePage',
+        '@id': 'https://www.rizll.tech/#profilepage',
         dateCreated: '2025-01-01',
         dateModified: new Date().toISOString().split('T')[0],
         mainEntity: {
           '@type': 'Person',
+          '@id': 'https://www.rizll.tech/#person',
           name: 'Muhamad Rizal Fikri',
           alternateName: ['Zall', 'Rizal Fikri'],
           jobTitle: 'Backend & Mobile Developer',
@@ -111,7 +142,37 @@ export default function Home() {
               },
               url: 'https://www.coursera.org/account/accomplishments/specialization/SIKKTO5LHR1R'
             }
-          ]
+          ],
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Development Services',
+            itemListElement: [
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Mobile Application Development',
+                  description: 'Cross-platform mobile app development with Flutter and native Android Kotlin.',
+                },
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Backend & API Development',
+                  description: 'RESTful API architecture with Node.js, Express, and Laravel.',
+                },
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Full-Stack Web Development',
+                  description: 'End-to-end web applications with Next.js and React.',
+                },
+              },
+            ],
+          },
         }
       },
       {
@@ -248,8 +309,11 @@ export default function Home() {
       },
       {
         '@type': 'WebSite',
+        '@id': 'https://www.rizll.tech/#website',
         name: 'Muhamad Rizal Fikri | Web & Mobile Developer Portfolio',
-        url: 'https://www.rizll.tech'
+        url: 'https://www.rizll.tech',
+        inLanguage: 'id',
+        publisher: { '@id': 'https://www.rizll.tech/#organization' },
       }
     ]
   };

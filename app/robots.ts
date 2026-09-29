@@ -8,13 +8,22 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
-        // Allow AI search agents for real-time discovery and RAG queries
-        userAgent: ['Google-Extended', 'PerplexityBot', 'ChatGPT-User'],
+        // Explicitly allow ALL AI search and training crawlers for GEO citability
+        userAgent: [
+          'GPTBot',
+          'OAI-SearchBot',
+          'ChatGPT-User',
+          'Google-Extended',
+          'PerplexityBot',
+          'ClaudeBot',
+          'Claude-User',
+          'Claude-SearchBot',
+        ],
         allow: '/',
       },
       {
-        // Disallow AI bulk scrapers used exclusively for model training
-        userAgent: ['GPTBot', 'CCBot', 'ClaudeBot', 'anthropic-ai', 'Bytespider'],
+        // Only block pure bulk scrapers with no search product
+        userAgent: ['CCBot', 'Bytespider'],
         disallow: '/',
       },
     ],
