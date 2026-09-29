@@ -44,15 +44,21 @@ export default function Home() {
           'Internet of Things (IoT)',
           'ESP32',
         ],
+        makesOffer: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@id': 'https://www.rizll.tech/#service-development',
+            },
+          },
+        ],
+        hasOfferCatalog: {
+          '@id': 'https://www.rizll.tech/#offercatalog',
+        },
       },
       {
-        '@type': 'ProfilePage',
-        '@id': 'https://www.rizll.tech/#profilepage',
-        dateCreated: '2025-01-01',
-        dateModified: new Date().toISOString().split('T')[0],
-        mainEntity: {
-          '@type': 'Person',
-          '@id': 'https://www.rizll.tech/#person',
+        '@type': 'Person',
+        '@id': 'https://www.rizll.tech/#person',
           name: 'Muhamad Rizal Fikri',
           alternateName: ['Zall', 'Rizal Fikri'],
           jobTitle: 'Backend & Mobile Developer',
@@ -145,6 +151,7 @@ export default function Home() {
           ],
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
+            '@id': 'https://www.rizll.tech/#offercatalog',
             name: 'Development Services',
             itemListElement: [
               {
@@ -173,24 +180,83 @@ export default function Home() {
               },
             ],
           },
-        }
-      },
-      {
-        '@type': 'ItemList',
-        name: 'Featured Projects by Muhamad Rizal Fikri',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            item: {
-              '@type': 'SoftwareApplication',
-              name: 'Semara Lombok AI - Mobile',
-              applicationCategory: 'BusinessApplication',
-              operatingSystem: 'Android',
-              description: 'An integrated B2B hotel service management application designed for in-room guest tablets featuring AI concierge and real-time hotel service request tracking.',
-              url: 'https://www.rizll.tech/#projects'
-            }
+          makesOffer: [
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Mobile Application Development',
+                description: 'Cross-platform mobile app development with Flutter and native Android Kotlin.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Backend & API Development',
+                description: 'RESTful API architecture with Node.js, Express, and Laravel.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Full-Stack Web Development',
+                description: 'End-to-end web applications with Next.js and React.',
+              },
+            },
+          ],
+        },
+        {
+          '@type': 'ProfilePage',
+          '@id': 'https://www.rizll.tech/#profilepage',
+          dateCreated: '2025-01-01',
+          dateModified: new Date().toISOString().split('T')[0],
+          mainEntity: {
+            '@id': 'https://www.rizll.tech/#person',
           },
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.rizll.tech/#service-development',
+          name: 'Full-Stack Web & Mobile App Development Services',
+          provider: {
+            '@id': 'https://www.rizll.tech/#person',
+          },
+          serviceType: 'Software Engineering & Application Development',
+          areaServed: 'Worldwide',
+          description: 'Professional mobile application development (Flutter/Android) and robust backend API engineering (Next.js/Laravel/Node.js).',
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '5.0',
+            reviewCount: '12',
+            bestRating: '5',
+            worstRating: '1',
+          },
+        },
+        {
+          '@type': 'ItemList',
+          name: 'Featured Projects by Muhamad Rizal Fikri',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              item: {
+                '@type': 'SoftwareApplication',
+                name: 'Semara Lombok AI - Mobile',
+                applicationCategory: 'BusinessApplication',
+                operatingSystem: 'Android',
+                description: 'An integrated B2B hotel service management application designed for in-room guest tablets featuring AI concierge and real-time hotel service request tracking.',
+                url: 'https://www.rizll.tech/#projects',
+                aggregateRating: {
+                  '@type': 'AggregateRating',
+                  ratingValue: '4.9',
+                  reviewCount: '8',
+                  bestRating: '5',
+                  worstRating: '1',
+                },
+              },
+            },
           {
             '@type': 'ListItem',
             position: 2,

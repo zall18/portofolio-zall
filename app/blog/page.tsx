@@ -7,6 +7,11 @@ export const metadata: Metadata = {
     description: 'Technical articles, architectural guides, and competitive programming notes on Flutter, Kotlin, Node.js, Express, and IoT by Muhamad Rizal Fikri.',
     alternates: {
         canonical: 'https://www.rizll.tech/blog',
+        languages: {
+            'id': 'https://www.rizll.tech/blog',
+            'en': 'https://www.rizll.tech/blog',
+            'x-default': 'https://www.rizll.tech/blog',
+        },
     },
     openGraph: {
         title: 'Engineering Blog | Muhamad Rizal Fikri',

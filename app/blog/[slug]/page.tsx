@@ -30,6 +30,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         authors: [{ name: post.author, url: 'https://www.rizll.tech' }],
         alternates: {
             canonical: `https://www.rizll.tech/blog/${post.slug}`,
+            languages: {
+                'id': `https://www.rizll.tech/blog/${post.slug}`,
+                'en': `https://www.rizll.tech/blog/${post.slug}`,
+                'x-default': `https://www.rizll.tech/blog/${post.slug}`,
+            },
         },
         openGraph: {
             title: post.title,

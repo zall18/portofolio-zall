@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: "Muhamad Rizal Fikri | Web & Mobile Developer Portfolio",
     template: "%s | Muhamad Rizal Fikri"
   },
-  description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang fokus pada pengembangan aplikasi menggunakan Next.js, Laravel, dan Flutter.",
+  description: "Portfolio Muhamad Rizal Fikri, Backend dan Mobile Developer. Mahasiswa Sistem Informasi fokus pengembangan web dan mobile modern dengan Next.js dan Flutter.",
   keywords: ["Muhamad Rizal Fikri", "Rizal Fikri", "Portfolio", "Zall", "Web Developer", "Backend Developer", "Mobile Developer", "Next.js", "Laravel", "Flutter", "Sistem Informasi"],
   authors: [{ name: "Muhamad Rizal Fikri" }],
   creator: "Muhamad Rizal Fikri",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: "https://www.rizll.tech",
     title: "Muhamad Rizal Fikri | Web & Mobile Developer Portfolio",
-    description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang berfokus pada Next.js, Laravel, dan Flutter.",
+    description: "Portfolio Muhamad Rizal Fikri, Backend dan Mobile Developer. Mahasiswa Sistem Informasi fokus pengembangan web dan mobile modern dengan Next.js dan Flutter.",
     siteName: "Muhamad Rizal Fikri Portfolio",
     images: [
       {
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Muhamad Rizal Fikri | Web & Mobile Developer Portfolio",
-    description: "Portfolio of Muhamad Rizal Fikri - Backend & Mobile Developer. Mahasiswa Sistem Informasi yang berfokus pada Next.js, Laravel, dan Flutter.",
+    description: "Portfolio Muhamad Rizal Fikri, Backend dan Mobile Developer. Mahasiswa Sistem Informasi fokus pengembangan web dan mobile modern dengan Next.js dan Flutter.",
     creator: "@zall",
     images: ["/api/og"],
   },
@@ -67,6 +67,8 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: {
       'id': 'https://www.rizll.tech',
+      'en': 'https://www.rizll.tech',
+      'x-default': 'https://www.rizll.tech',
     },
   },
 

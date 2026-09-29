@@ -21,9 +21,9 @@ export default function FAQ() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="section-header">Frequently Asked Questions</h2>
+                <h2 className="section-header">What to Know &amp; How I Work (FAQ)</h2>
                 <p className="text-[var(--text-dark)] mt-6 text-sm opacity-70 uppercase tracking-widest">
-                    ▸ FAQ.DAT ▸ Quick answers &amp; factual overview ▸ Knowledge Base
+                    ▸ FAQ.DAT ▸ What I do, how I build applications &amp; why to collaborate
                 </p>
             </motion.div>
 
@@ -51,9 +51,9 @@ export default function FAQ() {
                                     <span className="text-[0.65rem] font-bold px-2 py-0.5 bg-[var(--card-pink)] text-white border border-[var(--shadow-dark)] uppercase">
                                         {faq.category}
                                     </span>
-                                    <span className="text-base md:text-lg font-bold text-[var(--text-dark)]">
+                                    <h3 className="text-base md:text-lg font-bold text-[var(--text-dark)] m-0 inline">
                                         {faq.question}
-                                    </span>
+                                    </h3>
                                 </div>
                                 <span className="text-lg font-bold text-[var(--card-pink)] shrink-0 w-6 h-6 flex items-center justify-center border-2 border-[var(--shadow-dark)] bg-[var(--card-yellow)] shadow-[2px_2px_0px_0px_var(--shadow-dark)]">
                                     {isOpen ? '−' : '+'}

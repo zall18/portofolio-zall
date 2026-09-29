@@ -50,7 +50,7 @@ export default function AboutMe() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
             >
-                <h2 className="section-header">About Me</h2>
+                <h2 className="section-header">About Me — Who I Am &amp; What I Do</h2>
             </motion.div>
 
             {/* Content Container — uses a wrapper for the 2-phase layout */}
@@ -65,21 +65,12 @@ export default function AboutMe() {
                         }}
                         className="flex-shrink-0 w-full md:w-[45%] flex justify-center"
                     >
-                        {/* This inner wrapper handles the translateX animation */}
+                        {/* Wrapper for photo card */}
                         <motion.div
                             style={{
                                 translateX: photoTranslateX,
                             }}
-                            className="hidden md:block"
-                        >
-                            <PhotoCard />
-                        </motion.div>
-                        {/* Mobile version — no translateX animation, always centered */}
-                        <motion.div
-                            style={{
-                                translateX: photoTranslateXMobile,
-                            }}
-                            className="block md:hidden"
+                            className="w-full flex justify-center"
                         >
                             <PhotoCard />
                         </motion.div>
@@ -101,9 +92,9 @@ export default function AboutMe() {
                             </span>
 
                             <div className="space-y-4 text-[var(--text-dark)]">
-                                <p className="text-lg md:text-xl font-bold text-[var(--card-pink)]">
-                                    ▸ HI THERE!
-                                </p>
+                                <h3 className="text-lg md:text-xl font-bold text-[var(--card-pink)]">
+                                    ▸ Who is Rizal &amp; What Drives His Passion?
+                                </h3>
                                 {paragraphs.map((text, i) => (
                                     <motion.p
                                         key={i}
@@ -147,10 +138,12 @@ function PhotoCard() {
             <div className="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-[var(--card-blue)] border-3 border-[var(--shadow-dark)] shadow-[8px_8px_0px_0px_var(--card-pink)] flex justify-center items-center overflow-hidden transition-all duration-300 group-hover:shadow-[12px_12px_0px_0px_var(--card-pink)] group-hover:-translate-x-1 group-hover:-translate-y-1">
                 <Image
                     src="/profile.webp"
-                    alt="Rizal's Profile"
+                    alt="Muhamad Rizal Fikri - Fullstack & Mobile Developer"
                     width={320}
                     height={320}
-                    priority
+                    loading="eager"
+                    fetchPriority="high"
+                    preload={true}
                     sizes="(max-width: 768px) 224px, (max-width: 1024px) 256px, 288px"
                     className="w-full h-full object-contain"
                 />

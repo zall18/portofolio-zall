@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SOCIAL_LINKS } from '../constants/socials'
+import SocialIcon from './SocialIcon'
 
 const MAIN_NAV_ITEMS = [
     { label: 'About Me!', href: '#about' },
@@ -110,11 +110,13 @@ export default function Navbar() {
                 >
                     {/* Logo — retro box style */}
                     <a
-                        href="#"
-                        aria-label="Kembali ke atas"
+                        href="/"
+                        aria-label="Kembali ke beranda"
                         onClick={(e) => {
-                            e.preventDefault()
-                            window.scrollTo({ top: 0, behavior: 'smooth' })
+                            if (typeof window !== 'undefined' && window.location.pathname === '/') {
+                                e.preventDefault()
+                                window.scrollTo({ top: 0, behavior: 'smooth' })
+                            }
                         }}
                         className="
                             font-bold text-base md:text-lg text-[var(--text-dark)]
@@ -239,12 +241,9 @@ export default function Navbar() {
                                             transition-all duration-100 relative
                                         "
                                     >
-                                        <Image
-                                            src={link.icon}
-                                            alt={link.alt}
-                                            width={20}
-                                            height={20}
-                                            className="w-full h-full object-contain"
+                                        <SocialIcon
+                                            name={link.alt}
+                                            className="w-full h-full text-white"
                                         />
                                     </a>
                                 </li>
@@ -355,12 +354,9 @@ export default function Navbar() {
                                                 transition-all duration-100 relative
                                             "
                                         >
-                                            <Image
-                                                src={link.icon}
-                                                alt={link.alt}
-                                                width={24}
-                                                height={24}
-                                                className="w-full h-full object-contain"
+                                            <SocialIcon
+                                                name={link.alt}
+                                                className="w-full h-full text-white"
                                             />
                                         </a>
                                     </li>
